@@ -59,3 +59,7 @@ Device: 7,4  Inode: 1572909     Links: 2
 whoami
 #when each file was modified
 ls -lt
+#Display the beginning of the /etc directory listing, filtering to show only the first 20 entries.
+ls /etc |head -20
+#Display the end of the /etc directory listing, filtering to show only the last 20 entries.
+ls /etc |tail -20
