@@ -28,4 +28,24 @@ cd ..
 .
 #parent directory
 ..
+#Explanation of the result of the -lai
+#Indicates the total number of disk blocks used by the contents of the directory.
+total 8
+1572909 drwxrwxrwx+ 2 codespace codespace 4096 Apr  9 12:20 .
+1572874 drwxrwxrwx+ 5 codespace root      4096 Apr  9 12:20 ..
+#1572909 inode number
+#d: is a directory
+#rwxrwxrwx+: permissions
+#owner, group, and others: can read, write, and execute (full access)
+#+: has extended permissions (ACL)
+#2: number of links (in this case, only . and ..)
+#codespace: owner user. group
+#4096 → size
+#Apr 9 12:20: last modification
+#1572909 drwxrwxrwx+ 2 codespace codespace 4096 Apr 9 12:20 .
 
+#. current directory
+#5: number of links (because the parent directory has more subfolders)
+#root: group
+#4096: size
+#.. : parent directory (top level)
