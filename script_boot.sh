@@ -55,3 +55,7 @@ stat .
 #Inode: It is the inode number, a unique identifier within the file system.
 #It is the number of links that point to that directory.
 Device: 7,4  Inode: 1572909     Links: 2
+#Used to display the current user (username) who is logged into the system.
+whoami
+#when each file was modified
+ls -lt
