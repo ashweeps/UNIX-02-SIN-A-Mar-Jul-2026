@@ -43,9 +43,15 @@ total 8
 #4096 → size
 #Apr 9 12:20: last modification
 #1572909 drwxrwxrwx+ 2 codespace codespace 4096 Apr 9 12:20 .
-
-#. current directory
+#. : current directory
 #5: number of links (because the parent directory has more subfolders)
 #root: group
 #4096: size
 #.. : parent directory (top level)
+
+#Used to display detailed information about the current directory
+stat .
+#Device: Indicate the device where the file or directory is stored.
+#Inode: It is the inode number, a unique identifier within the file system.
+#It is the number of links that point to that directory.
+Device: 7,4  Inode: 1572909     Links: 2
