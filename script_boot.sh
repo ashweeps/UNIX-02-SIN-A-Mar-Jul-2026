@@ -24,6 +24,8 @@ man ls
 ls --all = ls -a
 #It is used to move to the parent directory, one level above the current directory.
 cd ..
-
-
+#current directory
+.
+#parent directory
+..
 
