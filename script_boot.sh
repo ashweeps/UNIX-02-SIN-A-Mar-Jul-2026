@@ -16,5 +16,9 @@ cd ~
 cd $HOME
 #Used to display the value of the PATH environment variable, which contains a list of directories where the system looks for executable files.
 echo $PATH
+#Se utiliza para listar todos los archivos y directorios (incluidos los ocultos) con información detallada y números de inodo.
+ls -lai 
+#Used to display the manual (help documentation) for the ls command.
+man ls 
 
 
