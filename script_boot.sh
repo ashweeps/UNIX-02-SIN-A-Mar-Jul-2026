@@ -20,5 +20,10 @@ echo $PATH
 ls -lai 
 #Used to display the manual (help documentation) for the ls command.
 man ls 
+#Used to list all files and directories, including hidden ones.Furthermore, using `ls --all` is the same as using `ls -a`.
+ls --all = ls -a
+#It is used to move to the parent directory, one level above the current directory.
+cd ..
+
 
 
