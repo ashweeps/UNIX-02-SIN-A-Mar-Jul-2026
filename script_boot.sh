@@ -12,3 +12,9 @@ cd /workspaces/UNIX-02-SIN-A-Mar-Jul-2026/proyecto
 cd
 #Used to navigate to the home directory using the tilde (~), which represents the user’s home folder.
 cd ~ 
+#Used to change the current directory to the home directory by using the $HOME environment variable.
+cd $HOME
+#Used to display the value of the PATH environment variable, which contains a list of directories where the system looks for executable files.
+echo $PATH
+
+
