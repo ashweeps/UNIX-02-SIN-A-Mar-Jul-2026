@@ -8,3 +8,7 @@ mkdir proyecto
 cd proyecto/
 #It takes you to the proyecto folder inside the /workspaces/UNIX-02-SIN-A-Mar-Jul-2026 directory.
 cd /workspaces/UNIX-02-SIN-A-Mar-Jul-2026/proyecto
+#Used to return to the home directory of the current user.
+cd
+#Used to navigate to the home directory using the tilde (~), which represents the user’s home folder.
+cd ~ 
