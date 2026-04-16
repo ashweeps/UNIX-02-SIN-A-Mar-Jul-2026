@@ -15,3 +15,10 @@ rmdir -- -rf
 ls --help
 #Open the complete manual for the ls command, with its description, options, and detailed usage.
 man ls
+/ #para buscar (ejemplo: /clone)
+l #para ir hacia adelante
+L #para ir hacia atras 
+#Open the complete manual for the git clone command, with its description, options, and how to use it.
+man git-clone
+#Creates a shallow clone with the history limited to the specified number of commits. This implies `--single-branch` unless `--no-single-branch` is used to obtain histories closer to the branches. If you want to shallow clone submodules, you can also use `--shallow-submodules`.
+--depth
