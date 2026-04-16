@@ -7,3 +7,7 @@ ls -h
 ls -l -a -h
 #It displays all files in the directory, including hidden ones, in list format, with detailed information such as permissions, size, and date, using easy-to-read formats. It's the same as the previous command.
 ls -lah
+#Create a directory called -rf. The -- indicates that what follows is a name and not an option.
+mkdir -- -rf
+#Removes a directory named -rf (only works if it is empty).
+rmdir -- -rf
