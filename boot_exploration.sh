@@ -22,3 +22,11 @@ L #para ir hacia atras
 man git-clone
 #Creates a shallow clone with the history limited to the specified number of commits. This implies `--single-branch` unless `--no-single-branch` is used to obtain histories closer to the branches. If you want to shallow clone submodules, you can also use `--shallow-submodules`.
 --depth
+u #users
+g #group
+o #others 
+r #read
+w #write
+x #excute 
+# - = means its a archive 1) rw - Owner permissions 2) rw - Group permissions 3) rw - Other user permissions
+-rw-rw-rw-
