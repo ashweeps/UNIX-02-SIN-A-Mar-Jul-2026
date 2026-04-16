@@ -30,3 +30,4 @@ w #write
 x #excute 
 # - = means its a archive 1) rw - Owner permissions 2) rw - Group permissions 3) rw - Other user permissions
 -rw-rw-rw-
+touch script.sh
