@@ -30,4 +30,13 @@ w #write
 x #excute 
 # - = means its a archive 1) rw - Owner permissions 2) rw - Group permissions 3) rw - Other user permissions
 -rw-rw-rw-
+#creates an empty file named script.sh.
 touch script.sh
+#gives execute permission to everyone.
+chmod +x script.sh
+#gives execute permission only to the owner
+chmod u+x script.sh
+#removes read permission for others.
+chmod o-r secreto.txt
+#the owner can read and write; group and others have no permissions.
+chmod u+rw,go-rwx privado
