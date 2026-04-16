@@ -40,3 +40,11 @@ chmod u+x script.sh
 chmod o-r secreto.txt
 #the owner can read and write; group and others have no permissions.
 chmod u+rw,go-rwx privado
+#tries to write to a protected file, but may fail because the redirection (>) does not use sudo.
+sudo echo "holaa" > /etc/archivo_protegido
+#correctly writes to a protected file using administrator permissions.
+echo "holaa" | sudo tee /etc/archivo_protegido > /dev/null
+#lists the files in the /etc directory.
+ls /etc
+#displays the content of the file.
+cat /etc/archivo_protegido
