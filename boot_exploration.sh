@@ -66,5 +66,18 @@ su -
 echo "$HOME"
 #Displays the literal text $HOME without interpreting the variable.
 echo '$HOME'
-
-
+#Creates a file called hola.sh and writes the shebang line for a shell script.
+echo '#!/bin/sh' > hola.sh
+#Appends a line to the script that prints a message.
+echo 'echo "Hola desde mi primer script"' >> hola.sh
+#Displays the content of the script file.
+cat hola.sh
+#Tries to execute the script.
+ ./hola.sh
+#Shows file details and permissions.
+ls -l hola.sh
+#Gives execute permission to the script.
+ chmod +x hola.sh
+#Runs the script successfully after making it executable.
+./hola.sh
+#
