@@ -80,4 +80,11 @@ ls -l hola.sh
  chmod +x hola.sh
 #Runs the script successfully after making it executable.
 ./hola.sh
-#
+#Lists the contents of / and etc (note: likely a mistake; should be /etc).
+ls / etc
+#Creates an empty file named prueba.txt inside /etc with admin permissions.
+sudo touch /etc/prueba.txt
+#Creates a new directory called mi_carpeta in your home folder.
+ mkdir ~/mi_carpeta
+#Installs the cowsay package using the system’s package manager.
+apt install cowsay
