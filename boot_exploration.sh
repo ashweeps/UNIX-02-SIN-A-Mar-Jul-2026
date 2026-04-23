@@ -88,3 +88,13 @@ sudo touch /etc/prueba.txt
  mkdir ~/mi_carpeta
 #Installs the cowsay package using the system’s package manager.
 apt install cowsay
+#Creates an empty file named prueba.txt.
+touch prueba.txt
+#Sets permissions so only the owner can read and write the file.
+chmod 600 prueba.txt
+#Displays detailed information and permissions of the file.
+ls -l prueba.txt
+#Sets permissions so the owner can read/write/execute, and others can read and execute.
+ chmod 755 prueba.txt
+#Shows the updated file permissions and details.
+ls -l prueba.txt
