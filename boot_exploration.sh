@@ -58,4 +58,9 @@ sudo -i
 exit 
 #Switch to an administrator (root) user session by loading your entire environment.
 sudo su -
+#Displays the branches of the current repository in Git.
+git branch
+#Switch to another user account (default root) by loading its full environment.
+su -
 #
+
