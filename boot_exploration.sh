@@ -62,5 +62,9 @@ sudo su -
 git branch
 #Switch to another user account (default root) by loading its full environment.
 su -
-#
+#Displays the value of the HOME variable (the path to your home folder).
+echo "$HOME"
+#Displays the literal text $HOME without interpreting the variable.
+echo '$HOME'
+
 
