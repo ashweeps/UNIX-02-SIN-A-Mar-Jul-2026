@@ -48,3 +48,7 @@ echo "holaa" | sudo tee /etc/archivo_protegido > /dev/null
 ls /etc
 #displays the content of the file.
 cat /etc/archivo_protegido
+#Run as administrator a command that appends the text "chao" to the file
+sudo sh -c 'echo "chao" >> /etc/archivo_protegido' 
+#Displays the contents of the file with the "chao" on the screen.
+cat /etc/archivo_protegido
