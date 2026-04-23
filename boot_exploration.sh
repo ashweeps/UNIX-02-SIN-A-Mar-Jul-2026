@@ -52,3 +52,10 @@ cat /etc/archivo_protegido
 sudo sh -c 'echo "chao" >> /etc/archivo_protegido' 
 #Displays the contents of the file with the "chao" on the screen.
 cat /etc/archivo_protegido
+#Open a shell session as the administrator (root) user, with its full environment.
+sudo -i
+#Close the current shell session
+exit 
+#Switch to an administrator (root) user session by loading your entire environment.
+sudo su -
+#
