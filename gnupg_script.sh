@@ -26,5 +26,10 @@ gpg --edit-key #It allows you to edit and manage a GPG key.
  gpg --output doc_cifrado_y_firmado_descifrado_y_validado.txt --decrypt camilla_doc_cifrado_y_firmado.txt #Decrypt the file and verify the signature, saving the original content.
  cat doc_cifrado_y_firmado_y_validado.txt # Displays the contents of the decrypted and verified file in the terminal.
 
+ #Updates package lists and installs development tools and system programs automatically without asking for confirmation.
+ #gcc, make — kernel compilation and BusyBox libncurses-dev — interactive configuration menus (menuconfig) flex, bison, bc — required by the kernel compilation process cpio — to create the initramfs libelf-dev, libssl-dev — kernel dependencies syslinux — the boot manager dosfstools — to create the FAT file system qemu-system-x86 — to test the image without real hardware
+sudo apt update sudo apt install -y git vim make gcc libncurses-dev flex bison bc \   cpio libelf-dev libssl-dev syslinux dosfstools qemu-system-x86 
+#
+
 
 
