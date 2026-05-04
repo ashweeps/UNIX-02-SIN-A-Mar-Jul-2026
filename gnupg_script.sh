@@ -29,7 +29,19 @@ gpg --edit-key #It allows you to edit and manage a GPG key.
  #Updates package lists and installs development tools and system programs automatically without asking for confirmation.
  #gcc, make — kernel compilation and BusyBox libncurses-dev — interactive configuration menus (menuconfig) flex, bison, bc — required by the kernel compilation process cpio — to create the initramfs libelf-dev, libssl-dev — kernel dependencies syslinux — the boot manager dosfstools — to create the FAT file system qemu-system-x86 — to test the image without real hardware
 sudo apt update sudo apt install -y git vim make gcc libncurses-dev flex bison bc \   cpio libelf-dev libssl-dev syslinux dosfstools qemu-system-x86 
-#
-
-
-
+#Downloads a copy of the Linux source code with only the latest version (shallow clone).
+git clone --depth 1 https://github.com/torvalds/linux.git 
+#Changes the current directory to the “linux” folder you just downloaded.
+cd linux 
+# Shows information about the CPU, like architecture, cores, and processor details.
+lscpu
+#Opens a text-based menu to configure the Linux kernel options before building it.
+make menuconfig 
+#Compiles the project using 2 parallel jobs to make the process faster.
+make -j 2 
+#Creates a new directory called “boot-files” in a system location with administrator permissions.
+sudo mkdir /boot-files 
+#Copies the compiled kernel file “bzImage” into the “boot-files” directory.
+sudo cp arch/x86/boot/bzImage /boot-files/ 
+#Moves one level up to the parent directory.
+cd ..
