@@ -26,6 +26,7 @@ gpg --edit-key #It allows you to edit and manage a GPG key.
  gpg --output doc_cifrado_y_firmado_descifrado_y_validado.txt --decrypt camilla_doc_cifrado_y_firmado.txt #Decrypt the file and verify the signature, saving the original content.
  cat doc_cifrado_y_firmado_y_validado.txt # Displays the contents of the decrypted and verified file in the terminal.
 
+#I forgot that we are working on the other script called boot.sh and I had already started it here, but I copied the same changes and saved it and continued in the other one. :(
  #Updates package lists and installs development tools and system programs automatically without asking for confirmation.
  #gcc, make — kernel compilation and BusyBox libncurses-dev — interactive configuration menus (menuconfig) flex, bison, bc — required by the kernel compilation process cpio — to create the initramfs libelf-dev, libssl-dev — kernel dependencies syslinux — the boot manager dosfstools — to create the FAT file system qemu-system-x86 — to test the image without real hardware
 sudo apt update sudo apt install -y git vim make gcc libncurses-dev flex bison bc \   cpio libelf-dev libssl-dev syslinux dosfstools qemu-system-x86 
@@ -59,3 +60,7 @@ make -j 2
 sudo mkdir /boot-files/initramfs 
 #Installs BusyBox files into the /boot-files/initramfs directory using root permissions.
 sudo make CONFIG_PREFIX=/boot-files/initramfs install 
+#
+cd /boot-files/initramfs 
+#
+
