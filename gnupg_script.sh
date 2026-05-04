@@ -51,5 +51,11 @@ ls -la /boot-files
 git clone --depth 1 https://git.busybox.net/busybox 
 #Changes the current directory to the “busybox” folder.
 cd busybox 
-#
-
+#Opens a menu in the terminal to configure BusyBox options before compiling it.
+make menuconfig 
+#Builds BusyBox using 2 parallel tasks to speed up the compilation process.
+make -j 2
+#Creates a new directory called “initramfs” inside /boot-files with administrator permissions.
+sudo mkdir /boot-files/initramfs 
+#Installs BusyBox files into the /boot-files/initramfs directory using root permissions.
+sudo make CONFIG_PREFIX=/boot-files/initramfs install 
