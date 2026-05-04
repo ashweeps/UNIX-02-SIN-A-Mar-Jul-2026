@@ -133,10 +133,29 @@ qemu-system-x86_64 -nographic -append "console=ttyS0" \ -kernel bzImage -initrd 
 #Exits QEMU (the virtual machine) when running in the terminal without graphics
 Ctrl+A and X
 
-#Exercies
+#Exercises
 # Checks if the system was booted with UEFI or BIOS.
 [ -d /sys/firmware/efi ] && echo "UEFI" || echo "BIOS"
-#
+#Changes the current directory to “/boot-files”.
 cd /boot-files
+#Starts a virtual machine in the terminal, using the kernel “bzImage” and the initramfs “init.cpio”, without a graphical interface.
 qemu-system-x86_64 -nographic -kernel bzImage -initrd init.cpio -append "console=ttyS0"
+#Checks if the system uses UEFI; if the folder exists it prints “UEFI”, otherwise it prints “BIOS”.
+[ -d /sys/firmware/efi ] && echo "UEFI" || echo "BIOS"
+#Lists all files and directories in the root (main) directory.
+ls /
+#Shows all files in “/bin” with full details, including hidden files.
+ls -la /bin/
+# Creates a small text file to compare real size and allocated blocks.
+echo "hola" > test.txt
+# Shows file size, allocated blocks, and filesystem block size.
+stat test.txt
+#Displays information about disks and partition tables (GPT or MBR).
+sudo parted -l
+#Prints a line break and a separator (---) in the terminal.
+echo -e "\n---\n" 
+#Shows information about disks, partitions, and their filesystems.
+lsblk -f  
+sudo parted -l && echo -e "\n---\n" && lsblk -f
+
 
