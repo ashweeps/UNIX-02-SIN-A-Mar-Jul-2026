@@ -1,5 +1,5 @@
 uname_a # Give the computer information
-which gpg # Give the location of the gpg binary
+linux/Documentation/lockingwhich gpg # Give the location of the gpg binary
 gpg --version # It tells us the version of gpg and additional information
 gpg --full-generate-key # To generate public key and private key
 gpg --list-keys #To see the keys
@@ -45,3 +45,11 @@ sudo mkdir /boot-files
 sudo cp arch/x86/boot/bzImage /boot-files/ 
 #Moves one level up to the parent directory.
 cd ..
+#Lists all files in /boot-files with full details, including hidden files.
+ls -la /boot-files
+#Downloads the BusyBox source code with only the latest version.
+git clone --depth 1 https://git.busybox.net/busybox 
+#Changes the current directory to the “busybox” folder.
+cd busybox 
+#
+
