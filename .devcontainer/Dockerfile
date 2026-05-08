@@ -188,7 +188,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Por defecto Docker usa /bin/sh (un shell más limitado y antiguo). Lo
 # cambiamos a bash por si agregamos más instrucciones con sintaxis
 # moderna (arrays, [[ ]], etc.).
-SHELL ["/bin/bash", "-c"]
+SHELL ["/bin/zsh", "-c"]
 
 
 # ----------------------------------------------------------------------------
@@ -229,11 +229,11 @@ __set_prompt() {
     else
         mark="\[\e[31m\]✗ $ec\[\e[0m\]"
     fi
-    PS1="\[\e[36m\][Ashley_Espinoza]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $mark \$ "
+    PS1="\[\e[36m\][Ashley_Espinoza⋆]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $mark \$ "
 }
 PROMPT_COMMAND=__set_prompt
 EOF
-CMD ["/bin/bash"]
+CMD ["/bin/zsh"]
 
 
 
