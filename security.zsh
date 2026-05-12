@@ -51,4 +51,9 @@ usermod -a -G grupo_test luna
 groups luna
 #Display detailed information and permissions of the file comun
 ls -l comun
-#
+#Changes the owner and the group associated with a file. This command assigns the file mi_archivo to the user luna and to the group grupo_test, allowing them to manage and access the file according to the assigned permissions.
+chown luna:grupo_test mi_archivo
+#Displays detailed information about the file, including file permissions, number of links, owner name, group name, file size, and last modification date.
+ls -l mi_archivo
+#This output indicates that the file mi_archivo has read and write permissions for the owner (luna), read-only permissions for the group (grupo_test) and other users, a file size of 5 bytes, and it was last modified on May 12 at 17:14.
+-rw-r--r-- 1 luna grupo_test 5 may 12 17:14 mi_archivo
