@@ -45,4 +45,10 @@ cat /etc/group
 touch comun 
 #Displays detailed information about the file comun.
 ls -l comun
+#Modify the user luna and add it to the grupo_test group without removing its other groups
+usermod -a -G grupo_test luna
+#Check which groups the user luna belongs to
+groups luna
+#Display detailed information and permissions of the file comun
+ls -l comun
 #
