@@ -57,3 +57,11 @@ chown luna:grupo_test mi_archivo
 ls -l mi_archivo
 #This output indicates that the file mi_archivo has read and write permissions for the owner (luna), read-only permissions for the group (grupo_test) and other users, a file size of 5 bytes, and it was last modified on May 12 at 17:14.
 -rw-r--r-- 1 luna grupo_test 5 may 12 17:14 mi_archivo
+#*Attempts to execute the `chown` command with administrator privileges using `sudo`. The error appears because the `sudo` command is not installed or available in the current shell environment.**
+sudo chown -R luna:grupo_test proyecto`
+#Changes the owner and group of the directory `proyecto` and all its contents recursively. The option `-R` means that the ownership changes apply to every file and subdirectory inside `proyecto`.**
+chown -R luna:grupo_test proyecto`
+#Displays the contents of the directory `proyecto` recursively, showing all files and subdirectories contained inside it.**
+ls -IR proyecto`
+#This output indicates that inside the directory `proyecto` there is a file named `readme` and a subdirectory named `sub`.**
+readme  sub`
