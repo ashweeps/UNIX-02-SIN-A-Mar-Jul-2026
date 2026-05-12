@@ -14,3 +14,6 @@ apt-get install acl
 chown -R $(whoami).
 #Removes all ACL permissions from the current directory and its contents recursively.
 setfacl -bnR .
+#Sets very restrictive default permissions for new files and directories.
+#Only the owner can read, write, and access them. Other users have no permissions.
+umask 077
