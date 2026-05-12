@@ -17,3 +17,32 @@ setfacl -bnR .
 #Sets very restrictive default permissions for new files and directories.
 #Only the owner can read, write, and access them. Other users have no permissions.
 umask 077
+#Creates a new empty file called secreto.txt.
+touch secreto.txt
+#Creates a new directory called privado.
+mkdir privado 
+#Displays files and directories in a long format, including permissions, owner, size, and modification date.
+ls -l
+#Sets default permissions so the owner can write files, while group members and other users can only read them.
+umask 022
+#Shows the name of the current user.
+whoami
+#Writes the text "Hola" into a file called mi_archivo. If the file does not exist, it creates it.
+echo "Hola" > mi_archivo
+#Displays detailed information about mi_archivo, including permissions, owner, size, and modification date.
+ls -l mi_archivo
+#Creates a new user called luna, creates a home directory for the user (-m), and sets /usr/bin/zsh as the default shell.
+useradd -m -s /usr/bin/zsh luna
+#Changes the owner of mi_archivo to the user luna.
+chown luna mi_archivo
+#Displays the groups of the current user.
+groups
+#Creates a new group called grupo_test.
+groupadd grupo_test
+#Shows the content of the system group file.
+cat /etc/group
+#Creates a new empty file called comun.
+touch comun 
+#Displays detailed information about the file comun.
+ls -l comun
+#
