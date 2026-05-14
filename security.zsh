@@ -69,3 +69,11 @@ readme  sub
 id
 #See all system users
 cat /etc/passwd | head -10
+#Displays the groups associated with the user stored in the variable $Luna.
+groups $Luna
+#Displays the user ID (UID) of the current user.
+id -u
+#Displays the primary group ID (GID) of the current user.
+id -g
+#Displays all group IDs associated with the current user.
+id -G
