@@ -101,4 +101,17 @@ addgroup --gid 2100 marketing
 addgroup --system cache_web
 #Searches the /etc/group file for the groups diseno, marketing, or cache_web and displays their information.
 grep "diseno\|marketing\|cache_web" /etc/group
-
+#Adds the user root to the group desarrolladores without removing the user from other existing groups.
+usermod -aG desarrolladores root
+#Adds the user root to the group diseno without removing the user from other existing groups.
+usermod -aG diseno root
+#Creates a new group named `grupo_temporal` in the system.**
+groupadd grupo_temporal
+#Adds the user `root` to the group `grupo_temporal` without removing the user from other groups.**
+usermod -aG grupo_temporal root
+#Displays detailed information about the user `root`, including the user ID (UID), primary group ID (GID), and all groups associated with the user.**
+id root
+#Changes the supplementary groups of the user root and assigns only the group desarrolladores. Previous secondary groups are removed because the -a option was not used.
+usermod -G desarrolladores root
+#Displays detailed information about the user root, including the user ID (UID), primary group ID (GID), and associated groups.
+id root
