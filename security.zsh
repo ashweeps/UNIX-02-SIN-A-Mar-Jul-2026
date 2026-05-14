@@ -77,3 +77,9 @@ id -u
 id -g
 #Displays all group IDs associated with the current user.
 id -G
+#Searches for lines containing the word codespace inside the /etc/group file, which stores information about system groups.
+cat /etc/group | grep codespace
+#Creates a new directory named proyecto_unix inside the user’s home directory.
+mkdir ~/proyecto_unix/
+#Displays detailed information about the contents of the directory proyecto_unix, including hidden files and directory details.
+ls -la ~/proyecto_unix/
