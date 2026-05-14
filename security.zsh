@@ -95,3 +95,10 @@ grep "desarrolladores\|operaciones\|sevicios_web"/etc/group
 grep -E "desarrolladores|operaciones|servicios_web" /etc/group
 #Searches the /etc/login.defs file for the configuration values GID_MIN, GID_MAX, and SYS_GID, which define the range of group IDs used by the system.
 grep "GID_MIN\|GID_MAX\|SYS_GID" /etc/login.defs
+#Creates a new user group named marketing with the group ID (GID) 2100.
+addgroup --gid 2100 marketing
+#Creates a system group named cache_web, usually used for system services or background processes.
+addgroup --system cache_web
+#Searches the /etc/group file for the groups diseno, marketing, or cache_web and displays their information.
+grep "diseno\|marketing\|cache_web" /etc/group
+
