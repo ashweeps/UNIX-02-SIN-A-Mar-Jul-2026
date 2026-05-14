@@ -83,3 +83,9 @@ cat /etc/group | grep codespace
 mkdir ~/proyecto_unix/
 #Displays detailed information about the contents of the directory proyecto_unix, including hidden files and directory details.
 ls -la ~/proyecto_unix/
+#Creates a new group named desarrolladores in the system.
+groupadd desarrolladores
+#Creates a new group named operaciones with the group ID (GID) 2000.
+groupadd -g 2000 operaciones
+#Creates a system group named servicios_web, usually used for system services or applications.
+groupadd --system servicios_web
