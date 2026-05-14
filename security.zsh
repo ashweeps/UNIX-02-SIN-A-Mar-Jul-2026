@@ -65,3 +65,7 @@ chown -R luna:grupo_test proyecto
 ls -IR proyecto
 #This output indicates that inside the directory `proyecto` there is a file named `readme` and a subdirectory named `sub`.**
 readme  sub
+#View the numeric identity of the current user. User Numeric ID, primary group, secondary groups.
+id
+#See all system users
+cat /etc/passwd | head -10
