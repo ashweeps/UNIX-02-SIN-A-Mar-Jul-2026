@@ -42,3 +42,7 @@ id -gn
 echo "Grupo restaurado: $(id -gn)"
 #Displays detailed information for both files in order to compare the group ownership inherited before and after using the newgrp command.
 ls -la ~/antes_de_newgrp.txt ~/dentro_de_newgrp.txt
+#Creates a new group called grupo_restringido.
+groupadd grupo_restringido
+#Opens the group administration utility to manage the members and password of the grupo_restringido group.
+gpasswd grupo_restringido
