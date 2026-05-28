@@ -46,3 +46,9 @@ ls -la ~/antes_de_newgrp.txt ~/dentro_de_newgrp.txt
 groupadd grupo_restringido
 #Opens the group administration utility to manage the members and password of the grupo_restringido group.
 gpasswd grupo_restringido
+#Creates a new user named ashley and automatically generates a home directory for the user with the -m option.
+useradd -m ashley
+#Starts a new session as the user ashley.
+su ashley
+#Changes the active group of the current session to grupo_restringido.
+newgrp grupo_restringido
