@@ -34,3 +34,11 @@ touch ~/dentro_de_newgrp.txt
 ls -la ~/dentro_de_newgrp.txt
 #Creates the directory proyecto_dev/src and any missing parent directories using the -p option.
 mkdir -p ~/proyecto_dev/src
+#Terminates the current shell session or exits the newgrp environment, restoring the previous active primary group.
+exit
+#Displays the name of the current active primary group after leaving the newgrp session.
+id -gn
+#Prints a message showing the restored active group by using command substitution with the id -gn command.
+echo "Grupo restaurado: $(id -gn)"
+#Displays detailed information for both files in order to compare the group ownership inherited before and after using the newgrp command.
+ls -la ~/antes_de_newgrp.txt ~/dentro_de_newgrp.txt
