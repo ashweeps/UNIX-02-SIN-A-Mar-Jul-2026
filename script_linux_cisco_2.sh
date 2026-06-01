@@ -143,3 +143,14 @@ sudo apt-get update
 sudo apt-get upgrade
 #Removes cowsay from the system. The purge option removes the package and its configuration files.
 sudo apt-get purge cowsay
+
+#Changes the password of the current user.
+passwd
+#Shows the password status for the sysadmin user. In my case, the user is codespace.
+passwd -S sysadmin
+#Switches to the root user account.
+su root
+#Changes the password of the sysadmin user from the root account.
+passwd sysadmin
+#Closes the current root session and returns to the previous user.
+exit
