@@ -178,4 +178,97 @@ echo "This food is good." >> newfile1.txt
 #Displays newfile1.txt to verify the appended content.
 cat newfile1.txt
 
+#Opens or creates the file newfile.txt using the vi editor.
+vi newfile.txt
+#Moves one character to the left in vi command mode.
+h
+#Moves one line down in vi command mode.
+j
+#Moves one line up in vi command mode.
+k
+#Moves one character to the right in vi command mode.
+l
+#Moves one word forward in vi command mode.
+w
+#Moves one word backward in vi command mode.
+b
+#Moves to the beginning of the current line.
+^
+#Moves to the end of the current line.
+$
 
+#cut (delete)
+d
+#copy (yank)
+y
+#paste (put)
+p | P
+
+#Deletes the current line in vi.
+dd
+#Deletes three lines starting from the current line.
+3dd
+#Deletes the current word in vi.
+dw
+##Deletes three words starting from the current cursor position in vi.
+d3w
+#Deletes four characters to the left of the cursor in vi.
+d4h
+#Changes the current line and enters insert mode in vi.
+cc
+#Changes the current word and enters insert mode.
+cw
+#Changes three words starting from the current cursor position and enters insert mode in vi.
+c3w
+#Changes five characters to the left of the cursor and enters insert mode in vi.
+c5h
+#Copies the current line into the buffer.
+yy
+#Copies three lines into the buffer.
+3yy
+#Copies the current word into the buffer in vi.
+yw
+#Copies the text from the cursor to the end of the current line in vi.
+y$
+#Pastes the copied or deleted text after the cursor.
+p
+#Pastes the copied or deleted text before the cursor.
+P
+#Searches forward for a word or pattern in vi.
+/word
+#Moves to the next search result.
+n
+#Moves to the previous search result.
+N
+#Searches backward for a word or pattern in vi.
+?word
+#Enters insert mode after the cursor.
+a
+#Enters insert mode at the end of the line.
+A
+#Enters insert mode before the cursor.
+i
+#Enters insert mode at the beginning of the line.
+I
+#Opens a new line below and enters insert mode.
+o
+#Opens a new line above and enters insert mode.
+O
+#Saves the current file in vi.
+:w
+#Saves the file with another name.
+:w filename
+#Forces the file to save.
+:w!
+#Goes to the first line of the file.
+:1
+#Opens another file in vi.
+:e filename
+#Quits vi if there are no changes.
+:q
+#Quits vi without saving changes.
+:q!
+#Saves and quits vi.
+:wq
+#Saves and quits vi from command mode.
+ZZ
