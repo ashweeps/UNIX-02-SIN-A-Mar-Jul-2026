@@ -17,3 +17,13 @@ ls School
 ls
 #This command renames the file animals.txt to zoo.txt.
 mv animals.txt zoo.txt
+#This command creates an empty text file named linux.txt.
+touch linux.txt
+#This command deletes the file linux.txt from the current directory.
+rm linux.txt
+#This command tries to list the file linux.txt. Since the file was deleted, Linux should show an error saying the file does not exist.
+ls linux.txt
+#This command deletes the Work folder and everything inside it. The option -r means recursive, so it removes the folder with its contents.
+rm -r Work
+#This command tries to list the Work folder. Since the folder was deleted, Linux should show an error saying the directory does not exist.
+ls Work
