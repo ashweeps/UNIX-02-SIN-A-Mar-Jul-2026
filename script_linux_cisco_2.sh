@@ -114,3 +114,10 @@ date
 shutdown 02:60
 #Shutdown in 1 minute and shows the message Goodbye World! to logged-in users.
 shutdown +1 "Goodbye World!"
+
+#This command shows the network configuration of the system. It displays information such as the IP address, network interfaces, and connection status.
+ifconfig
+#This command sends 4 test packets to the IP address 192.168.1.2. It checks if the computer can reach that device through the network. The option -c 4 limits the test to 4 packets.
+ping -c 4 192.168.1.2
+# This command sends 4 test packets to the IP address 192.168.1.3. It checks if there is network communication with that device. The option -c 4 stops the command after 4 packets.
+ping -c 4 192.168.1.3
