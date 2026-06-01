@@ -45,3 +45,14 @@ grep sysadmin passwd
 ^
 #This symbol matches the end of a line when it is placed at the end of the pattern. If it is not at the end, Linux treats it as a normal $ character.
 $
+#Extended regular expressions, which must be used with the egrep command or the -E option with the grep command
+#This symbol matches one or more repetitions of the previous pattern.
++
+#This symbol makes the previous pattern optional.
+?
+#This symbol specifies a minimum number, maximum number, or exact number of matches for the previous pattern.
+{ }
+#This symbol works as a logical OR. It matches one pattern or another pattern.
+|
+#These symbols create a group inside the regular expression. They help combine patterns and apply rules to the whole group.
+( )
