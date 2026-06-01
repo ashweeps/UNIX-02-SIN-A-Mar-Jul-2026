@@ -129,18 +129,17 @@ ps -e
 #This command shows all processes with full details. The option -e shows every process. The option -f shows the full format, including user, process ID, parent process ID, start time, and command.
 ps -ef
 
-#
-sudo apt-get update   
-#
-apt-cache search cow 
-#
-sudo apt-get install cowsay 
-#
-cowsay 'NDG Linux Unhatched' 
-#
-sudo apt-get update 
-#
-udo apt-get upgrade
-#
-sudo apt-get purge cowsay 
-#
+#This command updates the local package list from the software repositories. It helps the system know which packages and versions are available.
+sudo apt-get update
+#This command searches for packages related to the word cow. It helps find the cowsay package before installing it.
+apt-cache search cow
+#The sudo command gives administrator permissions to install software.
+sudo apt-get install cowsay
+#This command runs the cowsay program.It shows the text NDG Linux Unhatched inside a speech bubble with a cow.
+cowsay 'NDG Linux Unhatched'
+#Updates the package list again. It refreshes the information from the repositories.
+sudo apt-get update
+#upgrades installed packages to newer versions.
+sudo apt-get upgrade
+#Removes cowsay from the system. The purge option removes the package and its configuration files.
+sudo apt-get purge cowsay
