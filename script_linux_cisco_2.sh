@@ -103,3 +103,14 @@ grep 'ee*' red.txt
 grep 'red'
 #This command moves the terminal to the user’s home directory.
 cd ~
+
+#This command switches to the root user account. The dash - loads the root user environment.
+su -
+#This command shuts down the system immediately. It needs root permissions.
+shutdown now
+#This command shows the current date and time of the system.
+date
+#This command tries to schedule a shutdown at 02:60. This is incorrect because minutes only go from 00 to 59.
+shutdown 02:60
+#Shutdown in 1 minute and shows the message Goodbye World! to logged-in users.
+shutdown +1 "Goodbye World!"
