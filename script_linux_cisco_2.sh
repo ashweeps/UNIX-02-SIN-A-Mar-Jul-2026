@@ -128,3 +128,19 @@ ps
 ps -e
 #This command shows all processes with full details. The option -e shows every process. The option -f shows the full format, including user, process ID, parent process ID, start time, and command.
 ps -ef
+
+#
+sudo apt-get update   
+#
+apt-cache search cow 
+#
+sudo apt-get install cowsay 
+#
+cowsay 'NDG Linux Unhatched' 
+#
+sudo apt-get update 
+#
+udo apt-get upgrade
+#
+sudo apt-get purge cowsay 
+#
