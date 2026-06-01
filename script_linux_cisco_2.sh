@@ -56,3 +56,50 @@ $
 |
 #These symbols create a group inside the regular expression. They help combine patterns and apply rules to the whole group.
 ( )
+
+#This command adds a new user line to the passwd file. The symbol >> appends the text at the end of the file without deleting previous content.
+echo "sysadmin:x:1001:1001:System Administrator:/home/sysadmin:/bin/bash" >> passwd
+#This command searches for the word sysadmin inside the passwd file. It shows the line where this word appears.
+grep sysadmin passwd
+#This command searches for the exact word root inside the passwd file.
+grep 'root' passwd
+#This command searches for lines in /etc/passwd that start with root. The symbol ^ means beginning of the line.
+grep '^root' /etc/passwd
+#This command displays the content of the file alpha-first.txt.
+cat alpha-first.txt
+#This command searches for lines that end with the letter r. The symbol $ means end of the line.
+grep 'r$' alpha-first.txt
+#This command displays the content of the file red.txt.
+cat red.txt
+#This command searches for words or lines with r, then any two characters, and then f. The dot . represents any single character.
+grep 'r..f' red.txt
+#This command searches for words or lines with r, then any two characters, and then d.
+grep 'r..d' red.txt
+#This command searches for lines with at least four characters. Each dot represents one character.
+grep '....' red.txt
+#This command searches inside /etc/passwd for text with r, then any two characters, and then t.
+grep 'r..t' /etc/passwd
+#This command displays the content of the file profile.txt.
+cat profile.txt
+#This command searches for lines that contain at least one number from 0 to 9.
+grep '[0-9]' profile.txt
+#This command searches for lines that contain at least one character that is not a number. The symbol ^ inside brackets means not.
+grep '[^0-9]' profile.txt
+#This command searches for a real dot character. The brackets make the dot literal, so it does not mean any character.
+grep '[.]' profile.txt
+#This command displays the content of the file red.txt again.
+cat red.txt
+#This command searches for words or lines with r, followed by zero or more e characters, and then d. It matches patterns such as rd, red, reed, or reeed.
+grep 're*d' red.txt
+#This command searches for words or lines with r, followed by zero or more o or e characters, and then d. It matches patterns such as rd, rod, red, rood, or reed.
+grep 'r[oe]*d' red.txt
+#This command searches for zero or more z characters. Because zero matches are valid, it may match many lines.
+grep 'z*' red.txt
+#This command searches for zero or more e characters. Because zero matches are valid, it may match many lines.
+grep 'e*' red.txt
+#This command searches for one or more e characters. The first e is required, and e* means zero or more extra e characters.
+grep 'ee*' red.txt
+#It searches for the word red, but no file name was given. Linux will wait for text input from the keyboard.
+grep 'red'
+#This command moves the terminal to the user’s home directory.
+cd ~
