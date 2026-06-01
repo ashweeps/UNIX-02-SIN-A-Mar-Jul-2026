@@ -27,3 +27,8 @@ ls linux.txt
 rm -r Work
 #This command tries to list the Work folder. Since the folder was deleted, Linux should show an error saying the directory does not exist.
 ls Work
+
+#This command copies the passwd file from the /etc directory into the current directory. The dot . means the current folder.
+cp /etc/passwd .
+#This command searches for the word sysadmin inside the passwd file. If the word exists, Linux shows the matching line.
+grep sysadmin passwd
