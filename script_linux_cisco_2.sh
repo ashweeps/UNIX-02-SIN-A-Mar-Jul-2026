@@ -32,3 +32,16 @@ ls Work
 cp /etc/passwd .
 #This command searches for the word sysadmin inside the passwd file. If the word exists, Linux shows the matching line.
 grep sysadmin passwd
+#The basic characteristics of regular expressions:
+#This symbol matches any single character.
+.
+#This symbol matches any character included inside the brackets.
+[ ]
+#This symbol matches any character except the character included after the ^ symbol.
+[^ ]
+#This symbol matches zero or more repetitions of the previous character.
+*
+#This symbol matches the beginning of a line when it is placed at the start of the pattern. If it is not at the beginning, Linux treats it as a normal ^ character.
+^
+#This symbol matches the end of a line when it is placed at the end of the pattern. If it is not at the end, Linux treats it as a normal $ character.
+$
