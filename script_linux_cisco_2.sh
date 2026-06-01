@@ -154,3 +154,28 @@ su root
 passwd sysadmin
 #Closes the current root session and returns to the previous user.
 exit
+
+#Lists the contents of the Documents directory.
+ls Documents
+#Lists the contents of the current directory.
+ls
+#Tries to list fakefile. It should show an error because the file does not exist.
+ls fakefile
+#Displays the content of the file food.txt in the terminal.
+cat food.txt
+#Redirects the output of food.txt into newfile1.txt and creates or overwrites the file.
+cat food.txt > newfile1.txt
+#Displays the content of newfile1.txt to check the redirected output.
+cat newfile1.txt
+#Prints the word Hello in the terminal.
+echo "Hello"
+#Overwrites newfile1.txt with the text I like food.
+echo "I like food." > newfile1.txt
+#Displays newfile1.txt to verify its new content.
+cat newfile1.txt
+#Appends the text This food is good. to the end of newfile1.txt.
+echo "This food is good." >> newfile1.txt
+#Displays newfile1.txt to verify the appended content.
+cat newfile1.txt
+
+
