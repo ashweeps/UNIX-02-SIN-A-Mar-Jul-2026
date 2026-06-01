@@ -121,3 +121,10 @@ ifconfig
 ping -c 4 192.168.1.2
 # This command sends 4 test packets to the IP address 192.168.1.3. It checks if there is network communication with that device. The option -c 4 stops the command after 4 packets.
 ping -c 4 192.168.1.3
+
+#This command shows the processes running in the current terminal session. It displays basic information such as process ID, terminal, CPU time, and command name.
+ps
+#This command shows all processes running on the system.The option -e means every process.
+ps -e
+#This command shows all processes with full details. The option -e shows every process. The option -f shows the full format, including user, process ID, parent process ID, start time, and command.
+ps -ef
