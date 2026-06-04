@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -x
 bash --version
 env
 echo "$SHELL"
@@ -15,8 +16,10 @@ ls --help
 ls -a 
 mkdir directory1
 mkdir directory2 directory3
+
 ps -e -f 
 ps -ef
+df --human-readable
 
 # Run the script in restricted Bash mode
 bash -r blackhat1.sh
