@@ -7,4 +7,3 @@ echo ${result}
 
 result=$(expr 5 + 505)
 echo ${result}
- 
