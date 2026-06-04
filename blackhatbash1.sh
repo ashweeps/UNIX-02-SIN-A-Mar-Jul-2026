@@ -9,14 +9,6 @@ echo ${UID}
 
 #Open the manual page for the ls command
 man ls
-
-ls -l 
-ls -la
-ls --help
-ls -a 
-mkdir directory1
-mkdir directory2 directory3
-
 ps -e -f 
 ps -ef
 df --human-readable
