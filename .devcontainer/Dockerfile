@@ -227,3 +227,4 @@ PS1='\[\e[36m\][Ashley_Espinoza⋆]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] '
 EOF
 
 CMD ["/bin/bash"]
+RUN chsh -s /usr/bin/zsh root
