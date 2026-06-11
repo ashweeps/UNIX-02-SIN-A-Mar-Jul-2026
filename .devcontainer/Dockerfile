@@ -437,8 +437,10 @@ RUN git config --system --add safe.directory '*' \
 #git lfs install --system enables Git LFS support at the system level. If the repository uses large files, Git LFS will be ready without extra manual setup.
 
 #The && operator links the commands so each Git setting is applied only if the previous command worked. This keeps the image build from continuing after a Git configuration error. This relates to Black Hat Bash Ch.1, where shell control operators are used to connect commands safely.
-
 #----------------------------------------------------------------------------
+
+
+
 # ----------------------------------------------------------------------------
 # CMD: comando que se ejecuta por defecto al arrancar el contenedor
 # ----------------------------------------------------------------------------
@@ -447,11 +449,28 @@ RUN git config --system --add safe.directory '*' \
 # definida para que la imagen sea usable también con Docker puro.
 # Prompt del curso para bash
 RUN chsh -s /usr/bin/zsh root
+#-------------------------------------------------------------------------------
+#Part K change the root default shell
+#This RUN command changes the default login shell for the root user. The chsh command means change shell, and the -s option sets the shell path.
+
+#/usr/bin/zsh is selected because this container is configured to use zsh as the
+#main interactive shell. This makes the terminal start with the same shell that
+#will later load the .zshrc configuration.
+#The root user is the target user here because many container commands run as root by default.
+
+#This connects with Black Hat Bash Ch.1 because the shell is the program that reads and executes commands inside the terminal.
+#--------------------------------------------------------------------------
+
+
 
 RUN cat >> /root/.zshrc <<'EOF'
+#------------------------------------------------------------------------------
 
+#------------------------------------------------------------------------------
 PROMPT='%F{cyan}[Ashley_Espinoza⋆]%f %F{yellow}%1~%f %(?.%F{green}√.%F{red}X %?)%f %# '
 EOF
 
 CMD ["/usr/bin/zsh"]
+#-------------------------------------------------------------------------------
 
+#-------------------------------------------------------------------------------
