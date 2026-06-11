@@ -28,7 +28,7 @@ FROM kalilinux/kali-rolling:latest
 #-----------------------------------------------------------
 #Detailed explanation from Ashley Espinoza
 #-----------------------------------------------------------
-# Part A
+# Part A FROM kalilinux/kali-rolling:latest
 #Docker reads each instruction from top to bottom and creates an image with the operating system, tools, variables, and shell settings needed for the labs.
 
 # A Docker image is the saved template. A container is the running instance created from that template. This matches the lab idea from Black Hat Bash Chapter 3, where Kali Linux and containers are used to build a safe practice environment.
