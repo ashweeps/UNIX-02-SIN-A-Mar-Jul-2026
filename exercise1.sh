@@ -22,3 +22,10 @@ cp output.txt backup.txt
 
 #Displays the content of output.txt.
 cat output.txt
+
+#To run our script
+chmod u+x exercise1.sh
+
+# ./exercise1.sh Ashley Espinoza
+# This command starts the script and sends "Ashley" and "Espinoza" as input values.
+
