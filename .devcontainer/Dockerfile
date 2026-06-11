@@ -287,21 +287,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 #The --no-install-recommends option keeps the image smaller because apt installs only the required packages, not extra suggested tools.
 
-#I keep these installations in one large RUN instruction because every RUN
-#creates a new Docker layer. Using one RUN helps reduce image size and avoids repeated package setup steps.
-
+#I keep these installations in one large RUN instruction because every RUN creates a new Docker layer. Using one RUN helps reduce image size and avoids repeated package setup steps.
 
 #The && operator means the next command runs only if the previous command worked.
 #This is useful because the build should stop if apt-get update fails instead of
 #continuing with broken package information. Black Hat Bash Ch.1 explains this
 #kind of command chaining with shell control operators.
 
-
 #The backslash at the end of each line continues the same command on the next
-#line. This makes the package list easier to read without changing how Bash runs
-#the command.
-
-#
+#line. This makes the package list easier to read without changing how Bash runs the command.
 
 #The installed tools support the course labs. vim and neovim are text editors.
 #zsh and bash-completion improve shell work. gawk, sed, and grep are used for
@@ -311,22 +305,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 #These ideas connect with Black Hat Bash Ch.1 for shell commands, Ch.2 for grep,
 #sed, awk and text processing, and Ch.3 for Kali lab tooling.
 
-#
-
 #Text editors and shells used to write scripts and work inside the terminal.
 #vim and neovim are useful for editing files from the command line.
 #zsh is the interactive shell used when the container starts.
 #bash-completion helps complete commands, paths, and options faster.
-
-#
 
 #Main scripting and text-processing tools for the course.
 #perl and make support automation tasks.
 #gawk, sed, and grep are important for filtering, editing, and extracting text.
 #This connects with Black Hat Bash Ch.2 because those tools are used to process
 #command output.
-
-#
 
 #Basic Unix utilities used in many labs and scripts.
 #coreutils provides commands such as cat, ls, head, tail, sort, cut, and tr.
@@ -336,15 +324,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 #tree shows folder structure in a clear way.
 #jq reads and filters JSON data from the command line.
 
-#
-
 #Manual pages used as local documentation inside the container.
 #man-db enables the man command.
 #manpages and manpages-posix add documentation for Linux and POSIX commands.
 #This is useful because Black Hat Bash Ch.1 recommends using man to understand
 #command options.
 
-#
 
 #Network download, Git, certificates, and locale support.
 #curl and wget download data from URLs.
@@ -352,7 +337,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 #ca-certificates helps HTTPS connections trust valid certificates.
 #locales allows the container to generate and use language settings.
 
-#
 
 #ShellCheck reviews Bash scripts and reports common syntax or style problems.
 #This helps test scripts before running them in the lab.
@@ -393,15 +377,30 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # cambiamos a bash por si agregamos más instrucciones con sintaxis
 # moderna (arrays, [[ ]], etc.).
 SHELL ["/bin/zsh", "-c"]
+#----------------------------------------------------------------------------
+#Part H SHELL ["/bin/bash","-c"]
+#This instruction changes the shell that Docker will use for the next RUN commands.
+#Docker normally uses /bin/sh by default, but this image switches to zsh here.
 
+#Using zsh makes sense because the container is later configured to start with zsh and to load a custom .zshrc file. This keeps the build steps closer to the same shell environment that I will use when I open the container.
+
+#The "-c" option tells zsh to read the command as a string and execute it.
+#This is the same style used by shells when Docker runs commands during the image build.
+
+#Black Hat Bash Ch.1 explains that the shell is the program that reads commands and runs them. In this Dockerfile, this line chooses which shell will interpret future RUN instructions.
 
 # ----------------------------------------------------------------------------
+
+
+#-------------------------------------------------------------------------------
 # WORKDIR: directorio de trabajo al entrar al contenedor
 # ----------------------------------------------------------------------------
 # Codespaces siempre monta el código del repositorio en
 # /workspaces/<nombre-del-repo>. Establecer /workspaces aquí hace que las
 # terminales se abran cerca de nuestros archivos del curso.
 WORKDIR /workspaces
+#---------------------------------------------------------------------------
+#Part I 	WORKDIR /workspaces
 
 # Configuración de Git para el contenedor:
 # - safe.directory *: confía en cualquier repo montado (necesario porque
