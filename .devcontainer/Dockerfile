@@ -464,6 +464,8 @@ RUN chsh -s /usr/bin/zsh root
 
 
 RUN cat >> /root/.zshrc <<'EOF'
+PROMPT='%F{cyan}[Ashley_Espinoza⋆]%f %F{yellow}%1~%f %(?.%F{green}√.%F{red}X %?)%f %# '
+EOF
 #------------------------------------------------------------------------------
 #Part L heredoc for /root/.zshrc
 #This RUN command appends several lines to the root user's .zshrc file.
@@ -476,10 +478,13 @@ RUN cat >> /root/.zshrc <<'EOF'
 #This connects with Black Hat Bash Ch.1 because the shell prompt, startup files and command environment affect how I interact with Linux commands.
 
 #------------------------------------------------------------------------------
-PROMPT='%F{cyan}[Ashley_Espinoza⋆]%f %F{yellow}%1~%f %(?.%F{green}√.%F{red}X %?)%f %# '
-EOF
-
 CMD ["/usr/bin/zsh"]
 #-------------------------------------------------------------------------------
+#Part M default startup command
+#CMD defines the default command that runs when a container starts from this image.
+#It is different from RUN because RUN executes during the image build, while CMD executes later when the container is launched.
+#Here, the container starts with /usr/bin/zsh. This gives the user an interactive zsh terminal by default and loads the zsh configuration created in /root/.zshrc.
+#Codespaces may open its own integrated terminal, but keeping CMD makes the image usable outside Codespaces with normal Docker commands.
 
+#This connects with Black Hat Bash Ch.1 because the shell is the program used to read commands, run tools, and interact with the Linux environment.
 #-------------------------------------------------------------------------------
