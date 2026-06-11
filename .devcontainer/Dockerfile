@@ -236,20 +236,50 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # === Cliente HTTP más legible que curl para aprender ===
     httpie \
     \
+
+
+
+
  # --- Después de instalar, activamos el idioma español ---
  # sed busca "# es_ES.UTF-8" en /etc/locale.gen y le quita el "#" para
  # activar esa línea. Luego locale-gen compila los archivos de idioma.
  && sed -i 's/# es_ES.UTF-8/es_ES.UTF-8/' /etc/locale.gen \
  && locale-gen \
  \
+#-------------------------------------------------------------
+#Part f apt-get clean && rm 
+#This command enables the Spanish UTF-8 locale inside the container.
+#The sed -i command edits /etc/locale.gen directly and removes the comment symbol from the es_ES.UTF-8 line, so the system knows this locale should be generated.
+
+#After that, locale-gen creates the locale files that Linux programs need.
+#This is important because LANG and LC_ALL were already set to es_ES.UTF-8 in the ENV block. Without generating the locale, some programs could show warnings or handle Spanish characters incorrectly.
+
+#This connects with Black Hat Bash Ch.1 because shell programs depend on environment settings to decide how text, output, and characters are processed.
+#-------------------------------------------------------------
+
+    
  # --- Limpieza final: reducir el tamaño de la imagen ---
  # apt deja archivos de caché que ya no necesitamos después de instalar.
  # Borrarlos aquí (en el mismo RUN) hace la capa final más pequeña.
  # Si los borráramos en otro RUN, seguirían ocupando en la capa anterior.
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
+#------------------------------------------------------------------
+#Part G apt-get clean && rm -rf /var/lib/apt/lists/*
 
-#Part E RUN apt-get update && apt-get install
+#This cleanup step removes package cache files after the installation finishes.
+#apt-get clean deletes downloaded package files that are no longer needed.
+
+#The rm -rf /var/lib/apt/lists/* command removes the local package index files created by apt-get update. These files are useful during installation, but they do not need to stay inside the final image.
+
+#I keep this cleanup in the same RUN block because Docker saves each RUN as a
+#layer. If the cache were removed in a later RUN, the previous layer would still Keep the downloaded files and the image would stay larger.
+
+#The && operator makes the cleanup run only if the previous command succeeded. This keeps the build safer and easier to debug.
+#------------------------------------------------------------------
+
+
+    #Part E RUN apt-get update && apt-get install
 #This RUN block installs the main tools needed for the course inside the image.
 #I first run apt-get update because apt needs a fresh package index before it
 #can install software. After that, apt-get install downloads and installs the
@@ -336,6 +366,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 #torsocks can run commands through Tor.
 #proxychains4 sends traffic through configured proxies.
 #obfs4proxy helps disguise Tor traffic in restricted networks. HTTPie is an HTTP client with readable output. It is useful for learning and testing web requests from the terminal.
+
+
+
 # ----------------------------------------------------------------------------
 # SHELL: qué intérprete usar en los siguientes RUN
 # ----------------------------------------------------------------------------
