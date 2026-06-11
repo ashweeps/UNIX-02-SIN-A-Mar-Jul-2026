@@ -45,7 +45,7 @@ FROM kalilinux/kali-rolling:latest
 
 # ----------------------------------------------------------------------------
 
-#Part B image layers and cache
+# Part B image layers and cache
 
 # Docker does not build the whole image as one single piece. It builds it step by step. Each instruction creates a layer, and Docker stores that layer in its cache.
 
