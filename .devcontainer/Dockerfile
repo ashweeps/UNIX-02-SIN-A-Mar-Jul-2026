@@ -25,9 +25,39 @@
 # Todo lo que instalemos más abajo se apila ENCIMA de esta base.
 FROM kalilinux/kali-rolling:latest
 
+#-----------------------------------------------------------
+#Detailed explanation from Ashley Espinoza
+#-----------------------------------------------------------
+# Part A
+#Docker reads each instruction from top to bottom and creates an image with the operating system, tools, variables, and shell settings needed for the labs.
+
+# A Docker image is the saved template. A container is the running instance created from that template. This matches the lab idea from Black Hat Bash Chapter 3, where Kali Linux and containers are used to build a safe practice environment.
+# Docker builds images in layers. Each instruction creates a new layer, and Docker can reuse cached layers if earlier instructions do not change. For that reason, instruction order matters: stable setup steps should appear before
+# commands that change often.
+# -----------------------------------------------------------
+# FROM: base image
+# -----------------------------------------------------------
+# This instruction selects Kali Linux Rolling as the base image.
+# A base image provides the starting Linux filesystem and package manager.
+# Kali is a good choice for this course because Black Hat Bash Chapter 3 uses Kali as the main lab operating system for security practice. It also comes from a Debian-based environment, so it works well with apt, shell tools, and many cybersecurity utilities.
+# The "latest" tag tells Docker to pull the current Kali Rolling image available when the container is rebuilt.
+FROM kalilinux/kali-rolling:latest
 
 # ----------------------------------------------------------------------------
-# ENV: variables de entorno permanentes dentro del contenedor
+
+#Part B image layers and cache
+
+# Docker does not build the whole image as one single piece. It builds it step by step. Each instruction creates a layer, and Docker stores that layer in its cache.
+
+# If I rebuild the container and the first instructions are the same, Docker can reuse those cached layers instead of running them again, this makes the build faster.
+# The order of the instructions matters. I should place stable steps first, such as the base image and environment variables. Steps that change more often should go later. If I change an early line, Docker has to rebuild that layer and all the layers after it.
+
+# This is useful in a lab container because installing packages can take time.
+# Keeping the Dockerfile organized helps Codespaces rebuild the environment faster and with fewer repeated downloads. BHB Ch.3.
+
+
+
+# ENV: torno permanentes dentro del contenedor
 # ----------------------------------------------------------------------------
 # Las variables de entorno son "ajustes globales" que cualquier programa
 # del sistema puede leer. Se escriben en MAYÚSCULAS por convención.
