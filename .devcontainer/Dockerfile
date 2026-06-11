@@ -55,7 +55,7 @@ FROM kalilinux/kali-rolling:latest
 # This is useful in a lab container because installing packages can take time.
 # Keeping the Dockerfile organized helps Codespaces rebuild the environment faster and with fewer repeated downloads. BHB Ch.3.
 
-
+#----------------------------------------------------------------------------------
 
 # ENV: torno permanentes dentro del contenedor
 # ----------------------------------------------------------------------------
@@ -83,7 +83,15 @@ ENV DEBIAN_FRONTEND=noninteractive \
     LC_ALL=es_ES.UTF-8 \
     TERM=xterm-256color
 
+#---------------------------------------------------------------------------
+# Part C ENV (DEBIAN_FRONTEND, LANG, LC_ALL, TERM)
+#This ENV instruction defines default environment variables for the container, I use these variables because many Linux commands and programs read the shell environment before they run, as explained in Black Hat Bash Ch.1.
+#DEBIAN_FRONTEND=noninteractive makes package installation automatic. It prevents apt from stopping the Docker build to ask questions, which is important because the container must build without user input.
 
+#LANG=es_ES.UTF-8 sets the main language and text encoding. LC_ALL=es_ES.UTF-8 forces the same locale rules for all programs. Together, they help the terminal show Spanish text, accents, and special characters correctly.
+
+#TERM=xterm-256color tells terminal applications that the terminal supports color. This helps tools such as vim, htop, and other command-line programs display their interface correctly.
+#The backslash at the end of each line keeps the command readable while still making it one single ENV instruction.
 # ----------------------------------------------------------------------------
 # Pre-respuesta a una pregunta interactiva de Wireshark
 # ----------------------------------------------------------------------------
