@@ -400,7 +400,19 @@ SHELL ["/bin/zsh", "-c"]
 # terminales se abran cerca de nuestros archivos del curso.
 WORKDIR /workspaces
 #---------------------------------------------------------------------------
-#Part I 	WORKDIR /workspaces
+#Part I WORKDIR /workspaces
+#This instruction sets the default folder for the next Dockerfile commands and for the terminal when the container starts.
+#I use /workspaces because GitHub Codespaces normally places repository folders inside this path. This makes the environment easier to use because the terminal starts close to the course files instead of starting from a system folder like /.
+
+#WORKDIR also helps keep later commands organized. If a RUN, CMD, or shell session
+#needs a working directory, Docker will use this location unless another folder is
+#selected later.
+
+#This connects with Black Hat Bash Ch.1 because working with the shell often depends on knowing the current directory before running commands such as ls, cd, git, or scripts.
+#---------------------------------------------------------------------------
+
+
+#
 
 # Configuración de Git para el contenedor:
 # - safe.directory *: confía en cualquier repo montado (necesario porque
