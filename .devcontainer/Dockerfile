@@ -43,6 +43,8 @@ FROM kalilinux/kali-rolling:latest
 # The "latest" tag tells Docker to pull the current Kali Rolling image available when the container is rebuilt.
 FROM kalilinux/kali-rolling:latest
 
+
+
 # ----------------------------------------------------------------------------
 
 # Part B image layers and cache
@@ -83,6 +85,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
     LC_ALL=es_ES.UTF-8 \
     TERM=xterm-256color
 
+
+
 #---------------------------------------------------------------------------
 # Part C ENV (DEBIAN_FRONTEND, LANG, LC_ALL, TERM)
 #This ENV instruction defines default environment variables for the container, I use these variables because many Linux commands and programs read the shell environment before they run, as explained in Black Hat Bash Ch.1.
@@ -94,6 +98,14 @@ LANG=es_ES.UTF-8
 TERM=xterm-256color 
 #tells terminal applications that the terminal supports color. This helps tools such as vim, htop, and other command-line programs display their interface correctly.
 #The backslash at the end of each line keeps the command readable while still making it one single ENV instruction.
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    LANG=es_ES.UTF-8 \
+    LC_ALL=es_ES.UTF-8 \
+    TERM=xterm-256color
+
+
+
 
 # ----------------------------------------------------------------------------I
 # Pre-respuesta a una pregunta interactiva de Wireshark
@@ -114,8 +126,13 @@ RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
 #The pipe sends that text into debconf-set-selections, which stores the answer before apt installs Wireshark or tshark.
 #The value false means normal users will not be allowed to capture packets using the setuid option. This is safer for the container because packet capture should stay under root control.
 #This connects with Black Hat Bash Ch.1 because it uses standard output and a pipe to send the result of one command as input to another command.
+RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
+    | debconf-set-selections
 
 # ----------------------------------------------------------------------------
+
+
+#-----------------------------------------------------------------------------    
 # RUN: ejecutar comandos durante la construcción de la imagen
 # ----------------------------------------------------------------------------
 # Aquí instalamos TODO el software del curso en un solo RUN.
@@ -215,6 +232,25 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     proxychains4 \
     obfs4proxy \
     \
+#----------------------------------------------------------------------
+#Part E RUN apt-get update && apt-get install
+#This RUN block installs the main tools needed for the course inside the image. I first run apt-get update because apt needs a fresh package index before it can install software. After that, apt-get install downloads and installs the listed
+#packages.
+
+#The -y option answers yes automatically during installation and this keeps the Docker build from stopping to ask for confirmation.
+
+#The --no-install-recommends option keeps the image smaller because apt installs only the required packages, not extra suggested tools.
+
+#I keep these installations in one large RUN instruction because every RUN creates a new Docker layer. Using one RUN helps reduce image size and avoids repeated package setup steps.
+
+#The && operator means the next command runs only if the previous command worked.
+#This is useful because the build should stop if apt-get update fails instead of continuing with broken package information. Black Hat Bash Ch.1 explains this kind of command chaining with shell control operators.
+
+#The backslash at the end of each line continues the same command on the next line. This makes the package list easier to read without changing how Bash runs the command.
+
+#The installed tools support the course labs: vim and neovim are text editors; zsh and bash-completion improve shell work; gawk, sed, and grep are used for text processing; shellcheck helps find Bash script problems; nmap, masscan, tcpdump, tshark, netcat, and socat support networking and security practice; jq processes JSON output; man-db and manpages provide local command help.
+#These ideas connect with Black Hat Bash Ch.1 for shell commands, Ch.2 for grep, sed, awk and text processing, and Ch.3 for Kali lab tooling.
+    #------------------------------------------------------------------
     # === Cliente HTTP más legible que curl para aprender ===
     httpie \
     \
