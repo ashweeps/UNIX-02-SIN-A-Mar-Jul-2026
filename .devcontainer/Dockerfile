@@ -412,8 +412,6 @@ WORKDIR /workspaces
 #---------------------------------------------------------------------------
 
 
-#
-
 # Configuración de Git para el contenedor:
 # - safe.directory *: confía en cualquier repo montado (necesario porque
 #   /workspaces/... tiene un UID distinto al de root dentro del container).
@@ -425,7 +423,22 @@ RUN git config --system --add safe.directory '*' \
  && git config --system init.defaultBranch main \
  && git config --system pull.rebase false \
  && git lfs install --system
+#----------------------------------------------------------------------------
+#Part J Git configuration inside the container
+#This RUN command sets Git defaults for the whole container, not only for one repository. I use --system because these settings should apply to any repo opened inside this Codespace.
 
+#safe.directory '*' tells Git to trust repositories mounted inside /workspaces.
+#This helps avoid ownership warnings when the repo files belong to a different user ID than the root user inside the container.
+
+#init.defaultBranch main makes new repositories start with main as the default branch name. This avoids Git warnings and matches the branch name commonly used in modern repositories.
+
+#pull.rebase false makes git pull use merge behavior by default, and this is simpler for this course because it keeps the normal pull workflow easier to understand.
+
+#git lfs install --system enables Git LFS support at the system level. If the repository uses large files, Git LFS will be ready without extra manual setup.
+
+#The && operator links the commands so each Git setting is applied only if the previous command worked. This keeps the image build from continuing after a Git configuration error. This relates to Black Hat Bash Ch.1, where shell control operators are used to connect commands safely.
+
+#----------------------------------------------------------------------------
 # ----------------------------------------------------------------------------
 # CMD: comando que se ejecuta por defecto al arrancar el contenedor
 # ----------------------------------------------------------------------------
