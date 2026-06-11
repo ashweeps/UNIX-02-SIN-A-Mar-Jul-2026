@@ -232,24 +232,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     proxychains4 \
     obfs4proxy \
     \
-#----------------------------------------------------------------------
-#Part E RUN apt-get update && apt-get install
-#This RUN block installs the main tools needed for the course inside the image. I first run apt-get update because apt needs a fresh package index before it can install software. After that, apt-get install downloads and installs the listed
-#packages.
-
-#The -y option answers yes automatically during installation and this keeps the Docker build from stopping to ask for confirmation.
-
-#The --no-install-recommends option keeps the image smaller because apt installs only the required packages, not extra suggested tools.
-
-#I keep these installations in one large RUN instruction because every RUN creates a new Docker layer. Using one RUN helps reduce image size and avoids repeated package setup steps.
-
-#The && operator means the next command runs only if the previous command worked.
-#This is useful because the build should stop if apt-get update fails instead of continuing with broken package information. Black Hat Bash Ch.1 explains this kind of command chaining with shell control operators.
-
-#The backslash at the end of each line continues the same command on the next line. This makes the package list easier to read without changing how Bash runs the command.
-
-#The installed tools support the course labs: vim and neovim are text editors; zsh and bash-completion improve shell work; gawk, sed, and grep are used for text processing; shellcheck helps find Bash script problems; nmap, masscan, tcpdump, tshark, netcat, and socat support networking and security practice; jq processes JSON output; man-db and manpages provide local command help.
-#These ideas connect with Black Hat Bash Ch.1 for shell commands, Ch.2 for grep, sed, awk and text processing, and Ch.3 for Kali lab tooling.
     #------------------------------------------------------------------
     # === Cliente HTTP más legible que curl para aprender ===
     httpie \
@@ -267,7 +249,93 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
+#Part E RUN apt-get update && apt-get install
+#This RUN block installs the main tools needed for the course inside the image.
+#I first run apt-get update because apt needs a fresh package index before it
+#can install software. After that, apt-get install downloads and installs the
+#packages listed below.
+#
+#The -y option answers yes automatically during installation. This keeps the
+#Docker build from stopping to ask for confirmation.
+#
+#The --no-install-recommends option keeps the image smaller because apt installs
+#only the required packages, not extra suggested tools.
+#
+#I keep these installations in one large RUN instruction because every RUN
+#creates a new Docker layer. Using one RUN helps reduce image size and avoids
+#repeated package setup steps.
+#
+#The && operator means the next command runs only if the previous command worked.
+#This is useful because the build should stop if apt-get update fails instead of
+#continuing with broken package information. Black Hat Bash Ch.1 explains this
+#kind of command chaining with shell control operators.
+#
+#The backslash at the end of each line continues the same command on the next
+#line. This makes the package list easier to read without changing how Bash runs
+#the command.
+#
+#The installed tools support the course labs. vim and neovim are text editors.
+#zsh and bash-completion improve shell work. gawk, sed, and grep are used for
+#text processing. shellcheck helps find Bash script problems. nmap, masscan,
+#tcpdump, tshark, netcat, and socat support networking and security practice.
+#jq processes JSON output. man-db and manpages provide local command help.
+#These ideas connect with Black Hat Bash Ch.1 for shell commands, Ch.2 for grep,
+#sed, awk and text processing, and Ch.3 for Kali lab tooling.
+#
+#Text editors and shells used to write scripts and work inside the terminal.
+#vim and neovim are useful for editing files from the command line.
+#zsh is the interactive shell used when the container starts.
+#bash-completion helps complete commands, paths, and options faster.
 
+#Main scripting and text-processing tools for the course.
+#perl and make support automation tasks.
+#gawk, sed, and grep are important for filtering, editing, and extracting text.
+#This connects with Black Hat Bash Ch.2 because those tools are used to proces command output.
+
+#Basic Unix utilities used in many labs and scripts.
+#coreutils provides commands such as cat, ls, head, tail, sort, cut, and tr.
+#findutils provides find and xargs for searching files and building pipelines.
+#procps provides process tools such as ps, top, and kill.
+#less helps read long outputs or manual pages.
+#tree shows folder structure in a clear way.
+#jq reads and filters JSON data from the command line.
+
+#Manual pages used as local documentation inside the container.
+#man-db enables the man command.
+#manpages and manpages-posix add documentation for Linux and POSIX commands.
+#This is useful because Black Hat Bash Ch.1 recommends using man to understand command options.
+
+#Network download, Git, certificates, and locale support.
+#curl and wget download data from URLs.
+#git and git-lfs manage course repositories and large files.
+#ca-certificates helps HTTPS connections trust valid certificates.
+#locales allows the container to generate and use language settings.
+
+#ShellCheck reviews Bash scripts and reports common syntax or style problems.
+#This helps test scripts before running them in the lab.
+
+#Network discovery and scanning tools.
+#nmap is used for host discovery, service detection, and port scanning. 
+#masscan is used for faster scanning across large IP ranges.
+#This connects with Black Hat Bash Ch.3 because the lab uses Kali for security practice.
+
+#Packet capture and packet analysis tools.
+#tcpdump captures network traffic from the terminal.
+#tshark is the command-line version of Wireshark and helps inspect packets without a graphical interface.
+
+#netcat-traditional and socat help test connections and move data between
+#sockets.
+#dnsutils provides DNS tools such as dig and nslookup.
+#whois checks domain registration information.
+#traceroute and mtr-tiny help inspect network paths.
+#iproute2 and net-tools show or manage network configuration. 
+#iputils-ping provides the ping command used to test connectivity.
+
+#Proxy and anonymity-related tools for controlled lab practice.
+#tor provides access to the Tor network.
+#torsocks can run commands through Tor.
+#proxychains4 sends traffic through configured proxies.
+#obfs4proxy helps disguise Tor traffic in restricted networks. HTTPie is an HTTP client with readable output. It is useful for learning and testing web requests from the terminal.
 # ----------------------------------------------------------------------------
 # SHELL: qué intérprete usar en los siguientes RUN
 # ----------------------------------------------------------------------------
