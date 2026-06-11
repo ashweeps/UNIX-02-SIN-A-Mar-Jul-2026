@@ -465,6 +465,15 @@ RUN chsh -s /usr/bin/zsh root
 
 RUN cat >> /root/.zshrc <<'EOF'
 #------------------------------------------------------------------------------
+#Part L heredoc for /root/.zshrc
+#This RUN command appends several lines to the root user's .zshrc file.
+#The .zshrc file is loaded when zsh starts, so it is a good place to store shell customizations for the container terminal.
+
+#The <<'EOF' syntax starts a here-document, also called a heredoc. A heredoc lets me send multiple lines of text into a command without writing many echo commands.  In this case, all lines between EOF and EOF are passed into cat, and cat appends them to /root/.zshrc.
+#The quotes around 'EOF' are important because they prevent the shell from expanding variables while the image is being built. This keeps the text safe and writes it exactly as it appears.
+
+#The PROMPT line configures how the zsh prompt looks when I open the terminal.It controls the text, colors, and symbols shown before each command. This makes the course shell easier to identify and use.
+#This connects with Black Hat Bash Ch.1 because the shell prompt, startup files and command environment affect how I interact with Linux commands.
 
 #------------------------------------------------------------------------------
 PROMPT='%F{cyan}[Ashley_Espinoza⋆]%f %F{yellow}%1~%f %(?.%F{green}√.%F{red}X %?)%f %# '
