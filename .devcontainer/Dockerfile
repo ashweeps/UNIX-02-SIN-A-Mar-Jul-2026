@@ -88,11 +88,14 @@ ENV DEBIAN_FRONTEND=noninteractive \
 #This ENV instruction defines default environment variables for the container, I use these variables because many Linux commands and programs read the shell environment before they run, as explained in Black Hat Bash Ch.1.
 #DEBIAN_FRONTEND=noninteractive makes package installation automatic. It prevents apt from stopping the Docker build to ask questions, which is important because the container must build without user input.
 
-#LANG=es_ES.UTF-8 sets the main language and text encoding. LC_ALL=es_ES.UTF-8 forces the same locale rules for all programs. Together, they help the terminal show Spanish text, accents, and special characters correctly.
+LANG=es_ES.UTF-8 
+#sets the main language and text encoding. LC_ALL=es_ES.UTF-8 forces the same locale rules for all programs. Together, they help the terminal show Spanish text, accents, and special characters correctly.
 
-#TERM=xterm-256color tells terminal applications that the terminal supports color. This helps tools such as vim, htop, and other command-line programs display their interface correctly.
+TERM=xterm-256color 
+#tells terminal applications that the terminal supports color. This helps tools such as vim, htop, and other command-line programs display their interface correctly.
 #The backslash at the end of each line keeps the command readable while still making it one single ENV instruction.
-# ----------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------I
 # Pre-respuesta a una pregunta interactiva de Wireshark
 # ----------------------------------------------------------------------------
 # Wireshark/tshark PREGUNTA durante su instalación si los usuarios
@@ -101,7 +104,16 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # debconf-set-selections para que no detenga el build esperando input.
 RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
     | debconf-set-selections
+#-----------------------------------------------------------------------------
+#Part D RUN ... debconf-set-selections}
+#This RUN command prepares an automatic answer for the Wireshark package setup.
+#Some Debian packages ask configuration questions while they are being installed.
+#In a Docker build, this is a problem because there is no user waiting to answer the prompt, so the build could stop.
 
+#The echo command writes the answer that I want to send to the package system.
+#The pipe sends that text into debconf-set-selections, which stores the answer before apt installs Wireshark or tshark.
+#The value false means normal users will not be allowed to capture packets using the setuid option. This is safer for the container because packet capture should stay under root control.
+#This connects with Black Hat Bash Ch.1 because it uses standard output and a pipe to send the result of one command as input to another command.
 
 # ----------------------------------------------------------------------------
 # RUN: ejecutar comandos durante la construcción de la imagen
