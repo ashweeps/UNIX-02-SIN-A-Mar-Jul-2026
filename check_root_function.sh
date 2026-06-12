@@ -45,3 +45,15 @@ echo "User is not root!"
 
 #Ends the final if condition.
 fi
+
+#Creates a new user named Ashley and also creates a home directory for that user.
+useradd -m Ashley
+
+#Switches from the current user to the Ashley user and loads Ashley's login environment.
+su - Ashley
+
+#Shows the name of the user currently using the terminal.
+whoami
+
+#Runs the Bash script named check_root_function.sh to verify if the current user has root privileges.
+bash check_root_function.sh
