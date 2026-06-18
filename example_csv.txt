@@ -1,3 +1,5 @@
 Hola,Ashley,cami
 Taylor,Swift,Quito
 Holaa,Ashley,Pau
+
+awk -F',' '{print $1}' example_csv.txt
