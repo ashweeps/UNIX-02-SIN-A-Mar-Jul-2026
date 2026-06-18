@@ -1,4 +1,3 @@
-#Defines the file as a Bash script.
 #!/bin/bash
 
 #Stores the first argument provided by the user in the IP_ADDRESS variable.
