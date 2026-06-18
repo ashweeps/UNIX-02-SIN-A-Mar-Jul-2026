@@ -24,4 +24,8 @@ echo "Taylor,Swift,Quito" >> example_csv.txt
 #Adds the second data line to the CSV file.
 echo "Holaa,Ashley,Pau" >> example_csv.txt
 
+
 awk -F',' '{print $1}' example_csv.txt
+
+head log.txt
+awk 'NR < 10' log.txt
