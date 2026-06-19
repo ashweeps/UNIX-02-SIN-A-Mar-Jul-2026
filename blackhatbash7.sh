@@ -52,3 +52,10 @@ sleep 300 &
 jobs
 fg %1
 bg %1
+
+nohup ./exercise_solution.sh mysite google.com > nohup.out 2>&1 &
+#Runs the script in the background and saves normal output and errors in nohup.out.
+pgrep -af exercise_solution.sh
+#Checks if exercise_solution.sh is still running and shows the full process command.
+cat nohup.out
+cat results.csv

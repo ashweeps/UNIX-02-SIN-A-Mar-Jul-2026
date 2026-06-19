@@ -54,3 +54,5 @@ echo "failure,${NAME},${DOMAIN},$(date)" >> "${OUTPUT_FILE}"
 
 #Ends the ping condition.
 fi
+
+sleep 100
